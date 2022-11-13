@@ -37,7 +37,9 @@ export default function MovieTabs() {
                   <Tabs.TabPane
                     key={index}
                     tab={
-                      <p className="text-lg text-white">{theater.tenCumRap}</p>
+                      <p className="text-lg text-white hover:text-purple-600">
+                        {theater.tenCumRap}
+                      </p>
                     }
                   >
                     <div className="h-100 overflow-hidden p-3">
@@ -59,11 +61,16 @@ export default function MovieTabs() {
     });
   };
   return (
-    <div className="container mx-auto my-10 h-100  overflow-hidden">
-      <div className="w-full h-full border-2 border-white">
-        <Tabs tabPosition="left" defaultActiveKey="0">
-          {renderTheaterBranch()}
-        </Tabs>
+    <div className="">
+      <div className="container mx-auto my-10 h-100  overflow-hidden">
+        <div
+          style={{ border: "1px solid white" }}
+          className="w-full h-full border-2"
+        >
+          <Tabs tabPosition="left" defaultActiveKey="0">
+            {renderTheaterBranch()}
+          </Tabs>
+        </div>
       </div>
     </div>
   );
