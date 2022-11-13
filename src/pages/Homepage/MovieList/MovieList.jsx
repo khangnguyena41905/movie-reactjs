@@ -22,9 +22,9 @@ export default function MovieList(props) {
   }, []);
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-4 gap-6 mt-10">
+      <div className="grid grid-cols-4 gap-6">
         {movieList.items?.map((item) => {
-          return <MovieItems key={item.maPhim} items={item} />;
+          return <MovieItem key={item.maPhim} items={item} />;
         })}
       </div>
     </div>

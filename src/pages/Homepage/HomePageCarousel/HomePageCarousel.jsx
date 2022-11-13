@@ -68,7 +68,7 @@ export default function HomePageCarousel() {
           style={{ fontSize: "3rem" }}
         />
       </button>
-      <CarouselDots data={{ ref: ref, quality: 3 }} />
+      {/* <CarouselDots data={{ ref: ref, quality: 3 }} /> */}
     </div>
   );
 }

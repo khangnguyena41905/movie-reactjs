@@ -9,9 +9,10 @@ export default function CarouselDots(props) {
         return (
           <button
             key={index}
-            className="p-2 rounded-full bg-red-500 mx-2"
-            onClick={() => {
+            className="dot p-2 rounded-full bg-red-500 mx-2"
+            onClick={(e) => {
               ref.current.goTo(item + 1);
+              console.log(e.target);
             }}
           ></button>
         );

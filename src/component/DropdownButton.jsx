@@ -34,7 +34,7 @@ export default function DropdownButton({
       <div className={`flex justify-center items-center ${classNameContainer}`}>
         <span className={` grow cursor-pointer ${classNameInput}`}>{name}</span>
         <span className="w-1/5 cursor-pointer">
-          <DownOutlined />
+          <DownOutlined style={{ color: "white" }} />
         </span>
       </div>
     </Dropdown>

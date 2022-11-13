@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import moment from "moment/moment";
 import React from "react";
 import { useState } from "react";
@@ -86,48 +87,58 @@ export default function BookingTicketBar() {
     setItemsShowTime(showTime);
   };
   return (
-    <div className="aaa h-20 w-full bg-white flex justify-center items-center">
-      <div className="w-1/3 border-r border-r-rose-500">
-        <DropdownButton
-          name={bookingVal.movie}
-          items={itemsDrop.movie}
-          classNameContainer="p-2"
-          classNameInput="text-xl text-rose-700"
-          onClick={({ key }) => {
-            let movie = findMovie(key);
-            setBookingVal({ ...bookingVal, movie: movie[0].label });
-            findTheater(key);
-          }}
-        />
-      </div>
-      <div className="w-1/3 border-r border-r-rose-500">
-        <DropdownButton
-          name={bookingVal.theater}
-          items={itemsDrop.theater}
-          classNameContainer="p-2"
-          classNameInput="text-xl text-rose-700"
-          onClick={({ key }) => {
-            let theater = itemsDrop.theater.filter((item) => {
-              return item.key == key;
-            });
-            setBookingVal({ ...bookingVal, theater: theater[0].label });
-            findShowTime(theater);
-          }}
-        />
-      </div>
-      <div className="w-1/3 border-r border-r-rose-500">
-        <DropdownButton
-          name={bookingVal.showTime}
-          classNameContainer="p-2"
-          classNameInput="text-xl text-rose-700"
-          items={itemsShowTime}
-          onClick={({ key }) => {
-            let showTime = itemsShowTime.filter((item) => {
-              return item.key == key;
-            });
-            setBookingVal({ ...bookingVal, showTime: showTime[0].label });
-          }}
-        />
+    <div className="relative mb-32">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-20 w-3/5 bg-stone-800 rounded-xl flex justify-center items-center">
+        <div className="w-1/4 border-r border-r-rose-500">
+          <DropdownButton
+            name={bookingVal.movie}
+            items={itemsDrop.movie}
+            classNameContainer="p-2"
+            classNameInput="text-xl text-rose-700"
+            onClick={({ key }) => {
+              let movie = findMovie(key);
+              setBookingVal({ ...bookingVal, movie: movie[0].label });
+              findTheater(key);
+            }}
+          />
+        </div>
+        <div className="w-1/4 border-r border-r-rose-500">
+          <DropdownButton
+            name={bookingVal.theater}
+            items={itemsDrop.theater}
+            classNameContainer="p-2"
+            classNameInput="text-xl text-rose-700"
+            onClick={({ key }) => {
+              let theater = itemsDrop.theater.filter((item) => {
+                return item.key == key;
+              });
+              setBookingVal({ ...bookingVal, theater: theater[0].label });
+              findShowTime(theater);
+            }}
+          />
+        </div>
+        <div className="w-1/4 ">
+          <DropdownButton
+            name={bookingVal.showTime}
+            classNameContainer="p-2"
+            classNameInput="text-xl text-rose-700"
+            items={itemsShowTime}
+            onClick={({ key }) => {
+              let showTime = itemsShowTime.filter((item) => {
+                return item.key == key;
+              });
+              setBookingVal({ ...bookingVal, showTime: showTime[0].label });
+            }}
+          />
+        </div>
+        <div className="shrink-0">
+          <Button
+            size="large"
+            className="text-white text-xl border-0 bg-rose-700 hover:bg-rose-800 hover:text-white"
+          >
+            Mua vé
+          </Button>
+        </div>
       </div>
     </div>
   );

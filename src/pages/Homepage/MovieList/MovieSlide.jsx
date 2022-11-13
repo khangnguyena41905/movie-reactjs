@@ -1,9 +1,11 @@
 import { Carousel } from "antd";
+import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { movieServ } from "../../../service/movies.service";
 import MovieList from "./MovieList";
+import { useRef } from "react";
 export default function MovieSlide() {
   let [slideQuality, setSlideQuality] = useState([]);
   const settings = {
