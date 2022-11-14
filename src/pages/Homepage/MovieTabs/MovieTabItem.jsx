@@ -3,7 +3,7 @@ import moment from "moment";
 import React from "react";
 
 export default function MovieTabItem({ movie }) {
-  let { tenPhim, maPhim, lstLichChieuTheoPhim, hinhAnh } = movie;
+  let { tenPhim, lstLichChieuTheoPhim, hinhAnh } = movie;
   return (
     <div className="flex justify-center items-center w-full p-3">
       <div className="w-1/3 h-60 flex items-center">

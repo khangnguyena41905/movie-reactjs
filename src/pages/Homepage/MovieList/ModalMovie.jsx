@@ -1,5 +1,6 @@
 import { Modal } from "antd";
 import React from "react";
+import { useState } from "react";
 import ReactPlayer from "react-player";
 
 export default function ModalMovie({ isModalOpen, handleCancel, video }) {

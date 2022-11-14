@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { movieServ } from "../../../service/movies.service";
 import MovieTabItem from "./MovieTabItem";
+import "./scss/movie-tab.scss";
 
 export default function MovieTabs() {
   let [theaterBranch, setTheaterBranch] = useState([]);
@@ -42,7 +43,7 @@ export default function MovieTabs() {
                       </p>
                     }
                   >
-                    <div className="h-100 overflow-hidden p-3">
+                    <div className="movie-tabs__contents h-100 overflow-hidden p-3">
                       <div className="h-full overflow-auto">
                         {theater.danhSachPhim.map((movie) => {
                           return (
@@ -61,11 +62,13 @@ export default function MovieTabs() {
     });
   };
   return (
-    <div className="">
-      <div className="container mx-auto my-10 h-100  overflow-hidden">
+    <div className="py-10">
+      <div className="movie-tabs container mx-auto my-10 h-100  overflow-hidden">
         <div
-          style={{ border: "1px solid white" }}
-          className="w-full h-full border-2"
+          style={{
+            border: "1px solid",
+          }}
+          className="w-full h-full"
         >
           <Tabs tabPosition="left" defaultActiveKey="0">
             {renderTheaterBranch()}

@@ -88,13 +88,18 @@ export default function BookingTicketBar() {
   };
   return (
     <div className="relative mb-32">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-20 w-3/5 bg-stone-800 rounded-xl flex justify-center items-center">
+      <div
+        style={{
+          background: "#202020",
+        }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-20 w-3/5 rounded-xl flex justify-center items-center"
+      >
         <div className="w-1/4 border-r border-r-rose-500">
           <DropdownButton
             name={bookingVal.movie}
             items={itemsDrop.movie}
             classNameContainer="p-2"
-            classNameInput="text-xl text-rose-700"
+            classNameInput="text-xl text-white"
             onClick={({ key }) => {
               let movie = findMovie(key);
               setBookingVal({ ...bookingVal, movie: movie[0].label });
@@ -107,7 +112,7 @@ export default function BookingTicketBar() {
             name={bookingVal.theater}
             items={itemsDrop.theater}
             classNameContainer="p-2"
-            classNameInput="text-xl text-rose-700"
+            classNameInput="text-xl text-white"
             onClick={({ key }) => {
               let theater = itemsDrop.theater.filter((item) => {
                 return item.key == key;
@@ -121,7 +126,7 @@ export default function BookingTicketBar() {
           <DropdownButton
             name={bookingVal.showTime}
             classNameContainer="p-2"
-            classNameInput="text-xl text-rose-700"
+            classNameInput="text-xl text-white"
             items={itemsShowTime}
             onClick={({ key }) => {
               let showTime = itemsShowTime.filter((item) => {
