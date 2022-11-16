@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import DropdownButton from "../../../component/DropdownButton";
 import { movieServ } from "../../../service/movies.service";
+import { theaterServ } from "../../../service/theaters.service";
 
 export default function BookingTicketBar() {
   let [itemsShowTime, setItemsShowTime] = useState([]);
@@ -45,7 +46,7 @@ export default function BookingTicketBar() {
   };
   const findTheater = (key) => {
     let params = { MaPhim: key };
-    movieServ
+    theaterServ
       .getTheaterByMovie({ params })
       .then((res) => {
         let { heThongRapChieu } = res.data.content;
