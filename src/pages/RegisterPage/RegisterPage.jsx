@@ -3,8 +3,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { userServ } from "../../service/user.service";
 import "../../asset/scss/main.scss";
+import { useDispatch } from "react-redux";
+import { setLoginActionService } from "../../redux/actions/userActions";
 
 export default function RegisterPage() {
+  let dispatch = useDispatch();
   let navigate = useNavigate();
   const maNhom = [
     { lable: "GP01", value: "GP01" },
@@ -25,7 +28,13 @@ export default function RegisterPage() {
       .then((res) => {
         console.log("res: ", res);
         message.success(res.data.message);
-        navigate("/");
+        let handleSuccess = () => {
+          setTimeout(() => {
+            navigate("/");
+          }, 1000);
+        };
+        let tkUser = { taiKhoan: values.taiKhoan, matKhau: values.matKhau };
+        dispatch(setLoginActionService(tkUser, handleSuccess));
       })
       .catch((err) => {
         console.log("err: ", err);

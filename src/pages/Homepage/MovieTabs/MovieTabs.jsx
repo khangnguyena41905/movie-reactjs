@@ -65,7 +65,7 @@ export default function MovieTabs() {
       <div className="movie-tabs container mx-auto my-10 h-100  overflow-hidden">
         <div
           style={{
-            border: "1px solid",
+            border: "1px solid white",
           }}
           className="w-full h-full"
         >
