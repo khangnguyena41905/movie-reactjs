@@ -6,7 +6,6 @@ import ModalMovie from "./ModalMovie";
 const { Meta } = Card;
 export default function MovieItem(props) {
   let { tenPhim, maPhim, hinhAnh, moTa, trailer } = props.items;
-  let navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);

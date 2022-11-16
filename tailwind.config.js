@@ -18,6 +18,11 @@ module.exports = {
         96: "45rem",
         100: "50rem",
       },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        16: "repeat(16, minmax(0, 1fr))",
+        20: "repeat(20, minmax(0, 1fr))",
+      },
     },
   },
   plugins: [],

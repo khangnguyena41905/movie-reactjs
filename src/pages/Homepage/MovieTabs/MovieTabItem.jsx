@@ -20,7 +20,13 @@ export default function MovieTabItem({ movie }) {
         <div className="h-1/2 overflow-auto">
           {lstLichChieuTheoPhim.slice(0, 5).map((lichChieu) => {
             return (
-              <Button className="mt-1 mx-1 bg-transparent text-white border-0 hover:bg-gradient-to-r hover:from-rose-400 hover:to-blue-500 hover:text-white transition duration-300 ease-in-out">
+              <Button
+                key={lichChieu.maLichChieu}
+                onClick={() => {
+                  window.open(`/booking/${lichChieu.maLichChieu}`);
+                }}
+                className="mt-1 mx-1 bg-transparent text-white border-0 hover:bg-gradient-to-r hover:from-rose-400 hover:to-blue-500 hover:text-white transition duration-300 ease-in-out"
+              >
                 {moment(lichChieu.ngayChieuGioChieu).format(
                   "DD/MM/YYYY - HH:MM"
                 )}

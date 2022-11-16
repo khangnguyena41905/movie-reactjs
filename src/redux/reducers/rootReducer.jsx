@@ -1,3 +1,4 @@
 import { combineReducers } from "redux";
 import { UserReducer } from "./UserReducer";
-export let rootReducer = combineReducers({ UserReducer });
+import { TicketRoomReducer } from "./TicketRoomReducer";
+export let rootReducer = combineReducers({ UserReducer, TicketRoomReducer });
