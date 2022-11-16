@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ModalMovie from "./ModalMovie";
 const { Meta } = Card;
 export default function MovieItem(props) {
-  let { tenPhim, hinhAnh, moTa, trailer } = props.items;
+  let { tenPhim, maPhim, hinhAnh, moTa, trailer } = props.items;
   let navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
@@ -28,7 +28,7 @@ export default function MovieItem(props) {
               background: "linear-gradient(to top,#000,transparent 100%)",
             }}
             onClick={() => {
-              window.open("/detail");
+              window.open(`/detail/${maPhim}`);
             }}
             className="bg-hover cursor-pointer absolute inset-0 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition duration-300 ease-in-out"
           ></div>
