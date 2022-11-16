@@ -6,7 +6,7 @@ export const movieServ = {
     return https.get(uri);
   },
   getMovieLists: (params) => {
-    let uri = "api/QuanLyPhim/LayDanhSachPhimPhanTrang";
+    let uri = "/api/QuanLyPhim/LayDanhSachPhimPhanTrang";
     return https.get(uri, params);
   },
   getMovieByTheater: () => {
@@ -14,7 +14,7 @@ export const movieServ = {
     return https.get(uri);
   },
   getMovies: () => {
-    let uri = "api/QuanLyPhim/LayDanhSachPhim?maNhom=GP03";
+    let uri = "/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP03";
     return https.get(uri);
   },
   getTheaterByMovie: (params) => {
@@ -22,7 +22,7 @@ export const movieServ = {
     return https.get(uri, params);
   },
   getMovieTimeStart: (params) => {
-    let uri = "api/QuanLyRap/LayThongTinLichChieuHeThongRap";
+    let uri = "/api/QuanLyRap/LayThongTinLichChieuHeThongRap";
     return https.get(uri, params);
   },
 };

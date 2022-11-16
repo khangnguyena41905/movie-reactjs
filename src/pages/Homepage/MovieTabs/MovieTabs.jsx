@@ -4,8 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { movieServ } from "../../../service/movies.service";
 import MovieTabItem from "./MovieTabItem";
-import "./scss/movie-tab.scss";
-
+import "../../../asset/scss/main.scss";
 export default function MovieTabs() {
   let [theaterBranch, setTheaterBranch] = useState([]);
   const featchTheater = async () => {
