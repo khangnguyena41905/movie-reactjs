@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { movieServ } from "../../../service/movies.service";
 import MovieItem from "./MovieItem";
-import MovieItems from "./MovieItems";
 
 export default function MovieList(props) {
   let { soTrang, soPhanTuTrenTrang, maNhom } = props.data;

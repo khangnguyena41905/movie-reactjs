@@ -1,5 +1,6 @@
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import axios from "axios";
+import { userInfoLocal } from "./local.service";
 
 export const TOKEN_CYBERSOFT =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzM0UiLCJIZXRIYW5TdHJpbmciOiIxOS8wNC8yMDIzIiwiSGV0SGFuVGltZSI6IjE2ODE4NjI0MDAwMDAiLCJuYmYiOjE2NTQzNjIwMDAsImV4cCI6MTY4MjAxMDAwMH0.8vVBHKZZpOpTUa6ep4mWe7SQc5U-y_8IFYOnVCJLEgI";
@@ -13,5 +14,8 @@ export const configHeaders = () => {
 };
 export const https = axios.create({
   baseURL: BASE_URL,
-  headers: configHeaders(),
+  headers: {
+    TokenCybersoft: TOKEN_CYBERSOFT,
+    Authorization: "bearer " + userInfoLocal.get()?.accessToken,
+  },
 });

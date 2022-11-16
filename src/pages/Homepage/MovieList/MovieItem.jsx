@@ -1,10 +1,12 @@
 import { Button, Card, Modal } from "antd";
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
+import { useNavigate } from "react-router-dom";
 import ModalMovie from "./ModalMovie";
 const { Meta } = Card;
 export default function MovieItem(props) {
   let { tenPhim, hinhAnh, moTa, trailer } = props.items;
+  let navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -25,6 +27,9 @@ export default function MovieItem(props) {
             style={{
               background: "linear-gradient(to top,#000,transparent 100%)",
             }}
+            onClick={() => {
+              window.open("/detail");
+            }}
             className="bg-hover cursor-pointer absolute inset-0 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition duration-300 ease-in-out"
           ></div>
           <img
@@ -33,6 +38,9 @@ export default function MovieItem(props) {
             alt=""
             onClick={showModal}
           />
+          <button className="absolute bottom-0 left-1/2 -translate-x-1/2 py-3 px-5 bg-rose-600">
+            Mua vé
+          </button>
         </div>
         <div className="text-left">
           <p className="text-gray-100 text-xl">{tenPhim.substr(0, 10)}</p>
