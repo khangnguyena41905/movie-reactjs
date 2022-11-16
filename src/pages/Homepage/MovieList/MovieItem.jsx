@@ -38,7 +38,12 @@ export default function MovieItem(props) {
             alt=""
             onClick={showModal}
           />
-          <button className="absolute bottom-0 left-1/2 -translate-x-1/2 py-3 px-5 bg-rose-600">
+          <button
+            onClick={() => {
+              window.open("/booking");
+            }}
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 py-3 px-5 bg-rose-600"
+          >
             Mua vé
           </button>
         </div>
