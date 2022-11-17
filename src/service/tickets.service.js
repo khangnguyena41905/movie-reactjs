@@ -5,4 +5,8 @@ export const ticketServ = {
     let uri = `/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`;
     return https.get(uri);
   },
+  confirmBooking: (ticketList) => {
+    let uri = "/api/QuanLyDatVe/DatVe";
+    return https.post(uri, ticketList);
+  },
 };

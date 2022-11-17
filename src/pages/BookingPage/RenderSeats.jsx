@@ -36,12 +36,9 @@ const Input = styled.input`
   }
 `;
 
-export default function RenderSeats({ seats }) {
+export default function RenderSeats({ seats, choosedSeatsArr }) {
   let dispatch = useDispatch();
-  let choosedSeatsArr = useSelector((state) => {
-    console.log("mấy cái ghế", state.TicketRoomReducer.choosedSeatsArr);
-    return state.TicketRoomReducer.choosedSeatsArr;
-  });
+
   let handleChange = (e) => {
     let isChecked = e.target.checked;
     let seat = { maGhe: e.target.name, giaVe: e.target.value };

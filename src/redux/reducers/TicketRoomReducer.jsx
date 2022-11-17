@@ -1,4 +1,6 @@
-import { CHOOSE_SEATS } from "../constants/ticketRoomConstant";
+import { message } from "antd";
+import { ticketServ } from "../../service/tickets.service";
+import { CHOOSE_SEATS, COMFIRM_BOOKING } from "../constants/ticketRoomConstant";
 
 const initialState = {
   choosedSeatsArr: [],
