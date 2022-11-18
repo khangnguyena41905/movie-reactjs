@@ -41,7 +41,11 @@ export default function RenderSeats({ seats, choosedSeatsArr }) {
 
   let handleChange = (e) => {
     let isChecked = e.target.checked;
-    let seat = { maGhe: e.target.name, giaVe: e.target.value };
+    let seat = {
+      maGhe: e.target.id,
+      tenGhe: e.target.name,
+      giaVe: e.target.value,
+    };
     if (isChecked) {
       dispatch(choose_seats([...choosedSeatsArr, seat]));
     } else {
@@ -58,7 +62,8 @@ export default function RenderSeats({ seats, choosedSeatsArr }) {
           <Input
             onChange={handleChange}
             type="checkbox"
-            name={item.maGhe}
+            id={item.maGhe}
+            name={item.tenGhe}
             value={item.giaVe}
             disabled={item.daDat}
           />
@@ -68,10 +73,11 @@ export default function RenderSeats({ seats, choosedSeatsArr }) {
   };
 
   return (
-    <div>
-      <div className="grid grid-cols-20 gap-4 bg-black p-8">
-        {renderSeats()}
+    <div className="bg-black py-6">
+      <div className="screen bg-orange-700 h-10 w-4/5 mx-auto rounded-lg">
+        <p className="text-white">SCREEN</p>
       </div>
+      <div className="grid grid-cols-20 gap-3 p-8">{renderSeats()}</div>
     </div>
   );
 }
