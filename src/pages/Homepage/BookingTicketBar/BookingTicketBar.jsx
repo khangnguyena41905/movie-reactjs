@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, message } from "antd";
 import moment from "moment/moment";
 import React from "react";
 import { useState } from "react";
@@ -8,11 +8,11 @@ import { movieServ } from "../../../service/movies.service";
 import { theaterServ } from "../../../service/theaters.service";
 
 export default function BookingTicketBar() {
-  let [itemsShowTime, setItemsShowTime] = useState([]);
   let [itemsDrop, setItemsDrop] = useState({
     movie: [],
     theater: [],
     showTime: [],
+    maLichChieu: [],
   });
   let [bookingVal, setBookingVal] = useState({
     movie: "Phim",
@@ -67,8 +67,7 @@ export default function BookingTicketBar() {
             },
           ]);
         });
-        let itemsDropClone = { ...itemsDrop, theater: itemsTheater };
-        setItemsDrop(itemsDropClone);
+        setItemsDrop({ ...itemsDrop, theater: itemsTheater });
       })
       .catch((err) => {
         console.log("err: ", err);
@@ -85,7 +84,7 @@ export default function BookingTicketBar() {
         },
       ];
     });
-    setItemsShowTime(showTime);
+    setItemsDrop({ ...itemsDrop, showTime });
   };
   return (
     <div className="relative mb-32">
@@ -128,12 +127,16 @@ export default function BookingTicketBar() {
             name={bookingVal.showTime}
             classNameContainer="p-2"
             classNameInput="text-xl text-white"
-            items={itemsShowTime}
+            items={itemsDrop.showTime}
             onClick={({ key }) => {
-              let showTime = itemsShowTime.filter((item) => {
+              let showTime = itemsDrop.showTime.filter((item) => {
                 return item.key == key;
               });
-              setBookingVal({ ...bookingVal, showTime: showTime[0].label });
+              setBookingVal({
+                ...bookingVal,
+                showTime: showTime[0].label,
+                maLichChieu: showTime[0].key,
+              });
             }}
           />
         </div>
@@ -141,6 +144,13 @@ export default function BookingTicketBar() {
           <Button
             size="large"
             className="text-white text-xl border-0 bg-rose-700 hover:bg-rose-800 hover:text-white"
+            onClick={() => {
+              if (bookingVal.maLichChieu) {
+                window.open(`/booking/${bookingVal.maLichChieu}`);
+              } else {
+                message.error("Vui lòng điền đủ thông tin");
+              }
+            }}
           >
             Mua vé
           </Button>
