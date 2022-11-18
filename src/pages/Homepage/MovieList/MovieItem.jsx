@@ -1,7 +1,5 @@
 import { Button, Card, Modal } from "antd";
 import React, { useState } from "react";
-import ReactPlayer from "react-player";
-import { useNavigate } from "react-router-dom";
 import ModalMovie from "./ModalMovie";
 const { Meta } = Card;
 export default function MovieItem(props) {
@@ -39,11 +37,11 @@ export default function MovieItem(props) {
           />
           <button
             onClick={() => {
-              window.open("/booking");
+              window.open(`/detail/${maPhim}`);
             }}
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 py-3 px-5 bg-rose-600"
+            className="absolute bottom-0 block w-full left-1/2 -translate-x-1/2 py-3 px-5 text-gray-600 text-xl bg-rose-700 opacity-0 group-hover:opacity-100 hover:bg-rose-500 hover:text-gray-300 hover:shadow-lg hover:shadow-rose-400/50 transition duration-300 ease-in-out"
           >
-            Mua vé
+            Chi tiết
           </button>
         </div>
         <div className="text-left">
